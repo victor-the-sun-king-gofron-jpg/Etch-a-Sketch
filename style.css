@@ -1,0 +1,40 @@
+#controls-container{
+    float:left;
+    margin:50px;
+}
+
+#reset-switch{
+    width: 100px;
+    height: 20px;
+    font-size: 12px;
+}
+
+#grid-container{
+    /*width:100px;*/
+    /*display:flex;*/
+    float:right;
+    display: grid;
+    width: 500px;
+    height: 500px;
+    margin:50px;
+}
+
+/*Will remove after figureing out how to add new class*/
+/*.grid-item:hover{
+    background-color:black;
+}*/
+
+.grid-item {
+    /*display: inline-block;*/
+    /*float:right;*/
+    width:auto;
+    height:auto;
+    border: solid;
+    border-width: 1px;
+    background-color: white;
+}
+
+header {
+    text-align:center;
+    font-size:25px;
+}
