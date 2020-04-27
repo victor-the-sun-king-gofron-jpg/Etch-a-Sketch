@@ -1,6 +1,14 @@
-#controls-container{
-    float:left;
-    margin:50px;
+/*Style the Webpage*/
+header {
+    text-align:center;
+    font-size:30px;
+    font-family:'Tangerine', sans-serif;
+    color:gold;
+}
+
+strong{
+    font-size: 50px;
+    margin:30px;
 }
 
 #reset-switch{
@@ -9,9 +17,13 @@
     font-size: 12px;
 }
 
+#controls-container{
+    float:left;
+    margin:50px;
+}
+
+
 #grid-container{
-    /*width:100px;*/
-    /*display:flex;*/
     float:right;
     display: grid;
     width: 500px;
@@ -19,22 +31,12 @@
     margin:50px;
 }
 
-/*Will remove after figureing out how to add new class*/
-/*.grid-item:hover{
-    background-color:black;
-}*/
-
 .grid-item {
-    /*display: inline-block;*/
-    /*float:right;*/
     width:auto;
     height:auto;
     border: solid;
+    border-color: grey;
     border-width: 1px;
     background-color: white;
 }
 
-header {
-    text-align:center;
-    font-size:25px;
-}
