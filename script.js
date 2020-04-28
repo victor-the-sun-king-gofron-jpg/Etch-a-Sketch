@@ -42,4 +42,8 @@ function resetSketch(){
     createGrid(userGrid);
 }
 
+//Function to toggle between Black/Color
+
+//Function:Toggle when user draws via click
+
 resetSwitch.addEventListener('click', resetSketch);

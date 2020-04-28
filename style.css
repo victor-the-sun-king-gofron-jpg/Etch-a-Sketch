@@ -1,34 +1,64 @@
 /*Style the Webpage*/
 header {
-    text-align:center;
-    font-size:30px;
+    font-size:40px;
     font-family:'Tangerine', sans-serif;
     color:gold;
+    margin: 20px 0 0 50px;
+}
+
+body {
+    background-color:crimson;
+    display:flex;
+    text-align:center;
+    align-content:center;
+    flex-direction:column;
 }
 
 strong{
     font-size: 50px;
-    margin:30px;
+    margin:0 30px 0 30px;
+}
+
+/*We will create a side bar format to enable ease of user options*/
+button {
+    width: 100px;
+    height: 100px;
+    border-radius: 100vw;
+    border: 2px solid black;
+    font-size: 15px;
+    font-style: sans-serif;
+    color:black;
+    background-color: lightgrey;
+    min-width:100px;
+    min-height:100px;
 }
 
 #reset-switch{
-    width: 100px;
-    height: 20px;
-    font-size: 12px;
+    float: right;
+    margin:0 0 0 20vw;
 }
 
+#toggle-switch{
+    float: left;
+    margin:0 20vw 0 0;
+}
+
+/*Alters the styleing of the grids*/
 #controls-container{
-    float:left;
-    margin:50px;
+    width: 70vw;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 0 0 18vw;
 }
 
 
 #grid-container{
-    float:right;
     display: grid;
-    width: 500px;
-    height: 500px;
-    margin:50px;
+    width: 65vw;
+    height: 65vw;
+    margin:40px 40px 40px 20vw;
+    border: 2px solid black;
 }
 
 .grid-item {
@@ -39,4 +69,3 @@ strong{
     border-width: 1px;
     background-color: white;
 }
-
