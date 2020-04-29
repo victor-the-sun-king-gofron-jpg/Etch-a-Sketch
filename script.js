@@ -1,5 +1,7 @@
 const masterGrid = document.querySelector('#grid-container');
 const resetSwitch = document.querySelector('#reset-switch');
+const toggleSwitch = document.querySelector('#toggle-switch');
+var toggleBetweenColors = true;
 
 //Function:Create Grid
 function createGrid(amount){  
@@ -26,9 +28,24 @@ function coloredTiles(){
     //Next step combine these as an input for a colored value
 }
 
+//Function to toggle between Black/Color
+//Create a true false value
+function toggleColor(){
+    if(toggleBetweenColors === true){
+        toggleBetweenColors = false;
+    } else if(toggleBetweenColors === false){
+        toggleBetweenColors = true;
+    };
+    console.log(toggleBetweenColors);
+}
+
 /*Event Listener:Draw Colors Squares*/
 masterGrid.addEventListener('mouseover', (event) => {
-    let currentTileColor = event.target.style.backgroundColor = coloredTiles();
+    if(toggleBetweenColors === false){
+        var currentTileColor = event.target.style.backgroundColor = coloredTiles();
+    } else if(toggleBetweenColors === true){
+        var currentTileColor = event.target.style.backgroundColor = 'black';
+    }
     });
 
 //Button Event: Reset Color Squares/Enlarge Size
@@ -42,8 +59,8 @@ function resetSketch(){
     createGrid(userGrid);
 }
 
-//Function to toggle between Black/Color
-
 //Function:Toggle when user draws via click
 
+console.log(toggleBetweenColors);
 resetSwitch.addEventListener('click', resetSketch);
+toggleSwitch.addEventListener('click', toggleColor);
