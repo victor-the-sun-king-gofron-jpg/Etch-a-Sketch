@@ -2,6 +2,7 @@ const masterGrid = document.querySelector('#grid-container');
 const resetSwitch = document.querySelector('#reset-switch');
 const toggleSwitch = document.querySelector('#toggle-switch');
 var toggleBetweenColors = true;
+var activePen = true;
 
 //Function:Create Grid
 function createGrid(amount){  
@@ -29,7 +30,6 @@ function coloredTiles(){
 }
 
 //Function to toggle between Black/Color
-//Create a true false value
 function toggleColor(){
     if(toggleBetweenColors === true){
         toggleBetweenColors = false;
@@ -40,13 +40,42 @@ function toggleColor(){
 }
 
 /*Event Listener:Draw Colors Squares*/
-masterGrid.addEventListener('mouseover', (event) => {
-    if(toggleBetweenColors === false){
-        var currentTileColor = event.target.style.backgroundColor = coloredTiles();
-    } else if(toggleBetweenColors === true){
-        var currentTileColor = event.target.style.backgroundColor = 'black';
+/*NEED TO ENABLE A PEN UP/PEN DOWN FEATURE*/
+function penDown(){
+    masterGrid.addEventListener('mouseover', (event) => {
+        if(toggleBetweenColors === false){
+            var currentTileColor = event.target.style.backgroundColor = coloredTiles();
+        } else if(toggleBetweenColors === true){
+            var currentTileColor = event.target.style.backgroundColor = 'black';
+        }
+    }, true);
+};
+
+function penUp(){
+    masterGrid.removeEventListener('mouseover', (event) => {
+        if(toggleBetweenColors === false){
+            var currentTileColor = event.target.style.backgroundColor = coloredTiles();
+        } else if(toggleBetweenColors === true){
+            var currentTileColor = event.target.style.backgroundColor = 'black';
+        }
+    }, true);
+};
+
+//Function:Toggle when user draws via click
+//Should it be some sort of eventListener linked to the document page
+//When click it toggles the ability to draw in the boxes
+function togglePen(){
+    if(activePen){
+        penDown();
+        activePen = false;
+        console.log(activePen);
+    } else{
+        penUp();
+        activePen = true;
+        console.log(activePen);
     }
-    });
+};
+
 
 //Button Event: Reset Color Squares/Enlarge Size
 function resetSketch(){
@@ -57,10 +86,12 @@ function resetSketch(){
         userGrid = prompt("You need to enter a number silly");
     }*/
     createGrid(userGrid);
+    //Might need to remove the eventListener
 }
 
-//Function:Toggle when user draws via click
-
-console.log(toggleBetweenColors);
 resetSwitch.addEventListener('click', resetSketch);
 toggleSwitch.addEventListener('click', toggleColor);
+document.addEventListener('click', togglePen, true);
+/*document.removeEventListener('click', enablePen, true);*/
+
+
